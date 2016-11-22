@@ -1,5 +1,5 @@
-﻿using BattleNetApi.Client.Models.WoW;
-using BattleNetApi.Client.Networking;
+﻿using System.Web;
+using BattleNetApi.Client.Models.WoW;
 
 namespace BattleNetApi.Client
 {
@@ -12,8 +12,7 @@ namespace BattleNetApi.Client
 
         public ChallengeList GetChallengeRealmLeaderboard(string realm)
         {
-            var apiRequest = new ApiRequest<ChallengeList>(GetEndpointUri($"/wow/challenge/{realm}"));
-            return GetApiResponse(apiRequest);
+            return GetApiResponse(ForgeApiRequest<ChallengeList>($"/wow/challenge/{HttpUtility.UrlEncode(realm)}"));
         }
     }
 }

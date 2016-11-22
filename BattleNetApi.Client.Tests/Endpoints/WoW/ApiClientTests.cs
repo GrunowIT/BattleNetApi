@@ -1,5 +1,4 @@
-﻿using BattleNetApi.Client;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Linq;
 using BattleNetApi.Client.Constants;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -9,7 +8,7 @@ namespace BattleNetApi.Client.Tests
     [TestClass()]
     public class ApiClientTests
     {
-        private static ApiClient GetApiClient => new ApiClient(ConfigurationManager.AppSettings["apikey"], Region.EU, Locale.de_DE);
+        private static ApiClient GetApiClient => new ApiClient(ConfigurationManager.AppSettings["apikey"], new ApiClientConfiguration(Region.EU, Locale.en_GB));
 
         [TestMethod()]
         public void GetAchievementTest()
@@ -61,6 +60,7 @@ namespace BattleNetApi.Client.Tests
         {
             var leaderboard = GetApiClient.GetChallengeRealmLeaderboard("malganis");
             Assert.IsNotNull(leaderboard);
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(leaderboard.Challenge[0].Realm.Name));
         }
     }
 }

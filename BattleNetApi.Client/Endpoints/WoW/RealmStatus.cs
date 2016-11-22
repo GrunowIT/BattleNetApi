@@ -1,5 +1,4 @@
 ﻿using BattleNetApi.Client.Models.WoW;
-using BattleNetApi.Client.Networking;
 
 namespace BattleNetApi.Client
 {
@@ -7,8 +6,7 @@ namespace BattleNetApi.Client
     {
         public RealmList GetRealmStatusList()
         {
-            var apiRequest = new ApiRequest<RealmList>(GetEndpointUri("/wow/realm/status"));
-            return GetApiResponse(apiRequest);
+            return GetApiResponse(ForgeApiRequest<RealmList>("/wow/realm/status"));
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using BattleNetApi.Client.Models.WoW;
-using BattleNetApi.Client.Networking;
 
 namespace BattleNetApi.Client
 {
@@ -7,14 +6,12 @@ namespace BattleNetApi.Client
     {
         public Item GetItem(int itemId)
         {
-            var apiRequest = new ApiRequest<Item>(GetEndpointUri($"/wow/item/{itemId}"));
-            return GetApiResponse(apiRequest);
+            return GetApiResponse(ForgeApiRequest<Item>($"/wow/item/{itemId}"));
         }
 
         public ItemSet GetItemSet(int setId)
         {
-            var apiRequest = new ApiRequest<ItemSet>(GetEndpointUri($"/wow/item/set/{setId}"));
-            return GetApiResponse(apiRequest);
+            return GetApiResponse(ForgeApiRequest<ItemSet>($"/wow/item/set/{setId}"));
         }
     }
 }

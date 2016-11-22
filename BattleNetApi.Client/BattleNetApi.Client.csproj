@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiClient.cs" />
+    <Compile Include="ApiClientConfiguration.cs" />
     <Compile Include="Constants\ApiRegionAttribute.cs" />
     <Compile Include="Constants\CharacterFields.cs" />
     <Compile Include="Constants\GuildFields.cs" />

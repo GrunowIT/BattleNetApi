@@ -15,20 +15,24 @@ namespace BattleNetApi.Client
 
         public AuctionResponse GetAuctionData(string realm)
         {
-            var apiRequest = new ApiRequest<AuctionResponse>(GetEndpointUri($"/wow/auction/data/{HttpUtility.UrlEncode(realm)}"));
-            var result = GetApiResponse(apiRequest);
+            var result = GetApiResponse(ForgeApiRequest<AuctionResponse>($"/wow/auction/data/{HttpUtility.UrlEncode(realm)}"));
 
             // Setup lazy loading tasks.
             foreach (var auctionFile in result.AuctionFiles)
             {
-                auctionFile.AuctionDataTask = new Task<AuctionDataFile>(() =>
-                {
-                    var apiResponse = ApiProvider.GetFromJson(new ApiRequest<AuctionDataFile>(new Uri(auctionFile.Url)));
-                    return apiResponse;
-                });
+                auctionFile.AuctionDataTask = _getAuctionDataTask(auctionFile);
             }
 
             return result;
+        }
+
+        private Task<AuctionDataFile> _getAuctionDataTask(AuctionFile auctionFile)
+        {
+            return new Task<AuctionDataFile>(() =>
+            {
+                var apiResponse = ApiProvider.GetFromJson(new ApiRequest<AuctionDataFile>(new Uri(auctionFile.Url)));
+                return apiResponse;
+            });
         }
     }
 }
