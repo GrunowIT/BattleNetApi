@@ -74,7 +74,7 @@ namespace BattleNetApi.Client.Models.WoW
         [JsonProperty("progression")]
         public CharacterProgression Progression { get; set; }
         [JsonProperty("pvp")]
-        public Pvp Pvp { get; set; }
+        public CharacterPvp Pvp { get; set; }
         #endregion
     }
 }
