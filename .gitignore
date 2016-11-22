@@ -3,3 +3,4 @@ bin/
 obj/
 packages/**/*
 !packages/.gitkeep
+BattleNetApi.Client.Tests/App.config
