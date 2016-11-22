@@ -23,25 +23,25 @@ namespace BattleNetApi.Client.Models.WoW
     [JsonObject(MemberSerialization.OptIn)]
     public class Achievement : IApiEndpoint
     {
-        [JsonProperty(propertyName: "id")]
+        [JsonProperty("id")]
         public int Id { get; set; }
-        [JsonProperty(propertyName: "title")]
+        [JsonProperty("title")]
         public string Title { get; set; }
-        [JsonProperty(propertyName: "points")]
+        [JsonProperty("points")]
         public int Points { get; set; }
-        [JsonProperty(propertyName: "description")]
+        [JsonProperty("description")]
         public string Description { get; set; }
-        [JsonProperty(propertyName: "reward")]
+        [JsonProperty("reward")]
         public string Reward { get; set; }
-        [JsonProperty(propertyName: "icon")]
+        [JsonProperty("icon")]
         public string Icon { get; set; }
-        [JsonProperty(propertyName: "accountWide")]
+        [JsonProperty("accountWide")]
         public bool AccountWide { get; set; }
         [JsonProperty("factionId")]
         public int FactionId { get; set; }
-        [JsonProperty(propertyName: "rewardItems")]
+        [JsonProperty("rewardItems")]
         public AchievementRewardItem[] RewardItems { get; set; }
-        [JsonProperty(propertyName: "criteria")]
+        [JsonProperty("criteria")]
         public AchievementCriterion[] Criteria { get; set; }
     }
 }

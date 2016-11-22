@@ -18,13 +18,13 @@ namespace BattleNetApi.Client.Models.WoW
         [JsonProperty("tooltipParams")]
         public TooltipParams TooltipParams { get; set; }
         [JsonProperty("stats")]
-        public object[] Stats { get; set; }
+        public ItemStat[] Stats { get; set; }
         [JsonProperty("armor")]
         public int Armor { get; set; }
         [JsonProperty("context")]
         public string Context { get; set; }
         [JsonProperty("bonusLists")]
-        public object[] BonusLists { get; set; }
+        public int[] BonusLists { get; set; }
         [JsonProperty("artifactId")]
         public int ArtifactId { get; set; }
         [JsonProperty("displayInfoId")]
@@ -32,9 +32,9 @@ namespace BattleNetApi.Client.Models.WoW
         [JsonProperty("artifactAppearanceId")]
         public int ArtifactAppearanceId { get; set; }
         [JsonProperty("artifactTraits")]
-        public object[] ArtifactTraits { get; set; }
+        public ArtifactTrait[] ArtifactTraits { get; set; }
         [JsonProperty("relics")]
-        public object[] Relics { get; set; }
+        public Relic[] Relics { get; set; }
         [JsonProperty("appearance")]
         public ItemAppearance Appearance { get; set; }
     }
