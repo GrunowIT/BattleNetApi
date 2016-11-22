@@ -21,13 +21,6 @@ using Newtonsoft.Json;
 namespace BattleNetApi.Client.Models.WoW
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class BossList
-    {
-        [JsonProperty("bosses")]
-        public Boss[] Bosses { get; set; }
-    }
-
-    [JsonObject(MemberSerialization.OptIn)]
     public class Boss
     {
         [JsonProperty("id")]
@@ -59,25 +52,4 @@ namespace BattleNetApi.Client.Models.WoW
         [JsonProperty("location")]
         public BossLocation BossLocation { get; set; }
     }
-
-    [JsonObject(MemberSerialization.OptIn)]
-    public class BossLocation
-    {
-        [JsonProperty("id")]
-        public int Id { get; set; }
-        [JsonProperty("name")]
-        public string Name { get; set; }
-    }
-
-    [JsonObject(MemberSerialization.OptIn)]
-    public class BossNpc
-    {
-        [JsonProperty("id")]
-        public int Id { get; set; }
-        [JsonProperty("name")]
-        public string Name { get; set; }
-        [JsonProperty("urlSlug")]
-        public string UrlSlug { get; set; }
-    }
-
 }
