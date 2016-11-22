@@ -53,6 +53,9 @@
     <Compile Include="Constants\Region.cs" />
     <Compile Include="Endpoints\WoW\Achievement.cs" />
     <Compile Include="Endpoints\WoW\AuctionData.cs" />
+    <Compile Include="Endpoints\WoW\Challenge.cs" />
+    <Compile Include="Endpoints\WoW\Item.cs" />
+    <Compile Include="Endpoints\WoW\RealmStatus.cs" />
     <Compile Include="Extensions\FieldsEnumExtensions.cs" />
     <Compile Include="Extensions\RegionExtensions.cs" />
     <Compile Include="Models\IApiEndpoint.cs" />

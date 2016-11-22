@@ -197,7 +197,7 @@ namespace BattleNetApi.Client.Models.WoW
     }
 
     [JsonObject(MemberSerialization.OptIn)]
-    public class ItemSet
+    public class ItemSet : IApiEndpoint
     {
         [JsonProperty("id")]
         public int Id { get; set; }

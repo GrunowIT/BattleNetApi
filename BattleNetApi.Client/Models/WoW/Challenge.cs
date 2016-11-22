@@ -114,7 +114,7 @@ namespace BattleNetApi.Client.Models.WoW
     public class Time
     {
         [JsonProperty("time")]
-        public int TimeId { get; set; }
+        public long TotalMilliseconds { get; set; }
         [JsonProperty("hours")]
         public int Hours { get; set; }
         [JsonProperty("minutes")]
@@ -131,7 +131,7 @@ namespace BattleNetApi.Client.Models.WoW
     public class Member
     {
         [JsonProperty("character")]
-        public Character Character { get; set; }
+        public ChallengeCharacter Character { get; set; }
         [JsonProperty("spec")]
         public Spec Spec { get; set; }
     }
