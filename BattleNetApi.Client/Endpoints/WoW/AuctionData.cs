@@ -26,6 +26,11 @@ namespace BattleNetApi.Client
 {
     public partial class ApiClient
     {
+        private static string GetAuctionDataUrl(string realm)
+        {
+            return $"/wow/auction/data/{HttpUtility.UrlEncode(realm)}";
+        }
+
         public AuctionResponse GetAuctionData(Realm realm)
         {
             return GetAuctionData(realm.Slug);
@@ -33,15 +38,32 @@ namespace BattleNetApi.Client
 
         public AuctionResponse GetAuctionData(string realm)
         {
-            var result = GetApiResponse(ForgeApiRequest<AuctionResponse>($"/wow/auction/data/{HttpUtility.UrlEncode(realm)}"));
+            var result = GetApiResponse(ForgeApiRequest<AuctionResponse>(GetAuctionDataUrl(realm)));
+            
+            return _setupAuctionDataTasks(result);
+        }
 
+        public async Task<AuctionResponse> GetAuctionDataAsync(Realm realm)
+        {
+            return await GetAuctionDataAsync(realm.Slug);
+        }
+
+        public async Task<AuctionResponse> GetAuctionDataAsync(string realm)
+        {
+            var result = await GetApiResponseAsync(ForgeApiRequest<AuctionResponse>(GetAuctionDataUrl(realm)));
+
+            return _setupAuctionDataTasks(result);
+        }
+
+        private AuctionResponse _setupAuctionDataTasks(AuctionResponse auctionResponse)
+        {
             // Setup lazy loading tasks.
-            foreach (var auctionFile in result.AuctionFiles)
+            foreach (var auctionFile in auctionResponse.AuctionFiles)
             {
                 auctionFile.AuctionDataTask = _getAuctionDataTask(auctionFile);
             }
 
-            return result;
+            return auctionResponse;
         }
 
         private Task<AuctionDataFile> _getAuctionDataTask(AuctionFile auctionFile)

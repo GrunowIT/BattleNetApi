@@ -16,15 +16,26 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
     */
 
+using System.Threading.Tasks;
 using BattleNetApi.Client.Models.WoW;
 
 namespace BattleNetApi.Client
 {
     public partial class ApiClient
     {
+        private static string GetRealmStatusListUrl()
+        {
+            return "/wow/realm/status";
+        }
+
         public RealmList GetRealmStatusList()
         {
-            return GetApiResponse(ForgeApiRequest<RealmList>("/wow/realm/status"));
+            return GetApiResponse(ForgeApiRequest<RealmList>(GetRealmStatusListUrl()));
+        }
+
+        public async Task<RealmList> GetRealmListAsync()
+        {
+            return await GetApiResponseAsync(ForgeApiRequest<RealmList>(GetRealmStatusListUrl()));
         }
     }
 }

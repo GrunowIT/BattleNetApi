@@ -17,6 +17,7 @@
     */
 
 using System;
+using System.Threading.Tasks;
 using BattleNetApi.Client.Models;
 using BattleNetApi.Client.Networking;
 using BattleNetApi.Client.Utilities;
@@ -68,6 +69,11 @@ namespace BattleNetApi.Client
                 throw new Exception("Unknown error occured. Result is NULL.");
 
             return apiResponse.Result;
+        }
+
+        public async Task<T> GetApiResponseAsync<T>(ApiRequest<T> apiRequest) where T : IApiEndpoint
+        {
+            return await ApiProvider.MakeRequestAsync(apiRequest);
         }
     }
 }

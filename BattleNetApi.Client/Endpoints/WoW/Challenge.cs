@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
     */
 
+using System.Threading.Tasks;
 using System.Web;
 using BattleNetApi.Client.Models.WoW;
 
@@ -23,6 +24,11 @@ namespace BattleNetApi.Client
 {
     public partial class ApiClient
     {
+        private static string GetChallengeRealmLeaderboardUrl(string realm)
+        {
+            return $"/wow/challenge/{HttpUtility.UrlEncode(realm)}";
+        }
+
         public ChallengeList GetChallengeRealmLeaderboard(Realm realm)
         {
             return GetChallengeRealmLeaderboard(realm.Slug);
@@ -30,7 +36,17 @@ namespace BattleNetApi.Client
 
         public ChallengeList GetChallengeRealmLeaderboard(string realm)
         {
-            return GetApiResponse(ForgeApiRequest<ChallengeList>($"/wow/challenge/{HttpUtility.UrlEncode(realm)}"));
+            return GetApiResponse(ForgeApiRequest<ChallengeList>(GetChallengeRealmLeaderboardUrl(realm)));
+        }
+
+        public async Task<ChallengeList> GetChallengeRealmLeaderboardAsync(Realm realm)
+        {
+            return await GetChallengeRealmLeaderboardAsync(realm.Slug);
+        }
+
+        public async Task<ChallengeList> GetChallengeRealmLeaderboardAsync(string realm)
+        {
+            return await GetApiResponseAsync(ForgeApiRequest<ChallengeList>(GetChallengeRealmLeaderboardUrl(realm)));
         }
     }
 }

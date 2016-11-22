@@ -16,20 +16,40 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
     */
 
+using System.Threading.Tasks;
 using BattleNetApi.Client.Models.WoW;
 
 namespace BattleNetApi.Client
 {
     public partial class ApiClient
     {
+        private static string GetItemUrl(int itemId)
+        {
+            return $"/wow/item/{itemId}";
+        }
+        private static string GetItemSetUrl(int setId)
+        {
+            return $"/wow/item/set/{setId}";
+        }
+
         public Item GetItem(int itemId)
         {
-            return GetApiResponse(ForgeApiRequest<Item>($"/wow/item/{itemId}"));
+            return GetApiResponse(ForgeApiRequest<Item>(GetItemUrl(itemId)));
+        }
+
+        public async Task<Item> GetItemAsync(int itemId)
+        {
+            return await GetApiResponseAsync(ForgeApiRequest<Item>(GetItemUrl(itemId)));
         }
 
         public ItemSet GetItemSet(int setId)
         {
-            return GetApiResponse(ForgeApiRequest<ItemSet>($"/wow/item/set/{setId}"));
+            return GetApiResponse(ForgeApiRequest<ItemSet>(GetItemSetUrl(setId)));
+        }
+
+        public async Task<ItemSet> GetItemSetAsync(int setId)
+        {
+            return await GetApiResponseAsync(ForgeApiRequest<ItemSet>(GetItemSetUrl(setId)));
         }
     }
 }

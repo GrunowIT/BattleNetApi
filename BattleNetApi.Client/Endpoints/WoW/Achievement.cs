@@ -16,15 +16,26 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
     */
 
+using System.Threading.Tasks;
 using BattleNetApi.Client.Models.WoW;
 
 namespace BattleNetApi.Client
 {
     public partial class ApiClient
     {
+        private static string GetAchievementUrl(int id)
+        {
+            return $"/wow/achievement/{id}";
+        }
+
         public Achievement GetAchievement(int id)
         {
-            return GetApiResponse(ForgeApiRequest<Achievement>($"/wow/achievement/{id}"));
+            return GetApiResponse(ForgeApiRequest<Achievement>(GetAchievementUrl(id)));
+        }
+
+        public async Task<Achievement> GetAchievementAsync(int id)
+        {
+            return await GetApiResponseAsync(ForgeApiRequest<Achievement>(GetAchievementUrl(id)));
         }
     }
 }
