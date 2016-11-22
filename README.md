@@ -25,6 +25,12 @@ client.GetRealmStatusList()
 ```
 Which returns an instance of a RealmList object, containing a list of all realms (`Realms`), and a list of realms narrowed down to only return one realm for each connected realm group (`ConnectedRealms`).
 
+To get the current auction data, just use:
+```
+client.GetAuctionData("realm-name")
+```
+The actual auction data is not directly received. Instead the `Auctions` property on `AuctionFile` objects lazy loads this data when accessed. The lazy loading takes place in some kind of "Download Manager", which limits the maximum concurrent number of downloads. The number of concurrent downloads is soon to be configurable.
+
 For a detailed documentation of all features, see the [Wiki](https://github.com/GrunowIT/BattleNetApi/wiki).
 
 ## API implementations
