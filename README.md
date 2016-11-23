@@ -125,26 +125,26 @@ The following is a list taken from the battle.net API documentation, displaying 
 - [x] Realm Status
 
 #### Recipe API
-- [ ] Recipe
+- [x] Recipe
 
 #### Spell API
-- [ ] Spell
+- [x] Spell
 
 #### Zone API
-- [ ] Master List
-- [ ] Zone
+- [x] Master List
+- [x] Zone
 
 #### Data Resources
-- [ ] Battlegroups
-- [ ] Character Races
-- [ ] Character Classes
-- [ ] Character Achievements
-- [ ] Guild Rewards
-- [ ] Guild Perks
-- [ ] Guild Achievements
-- [ ] Item Classes
-- [ ] Talents
-- [ ] Pet Types
+- [x] Battlegroups
+- [x] Character Races
+- [x] Character Classes
+- [x] Character Achievements
+- [x] Guild Rewards
+- [x] Guild Perks
+- [x] Guild Achievements
+- [x] Item Classes
+- [x] Talents
+- [x] Pet Types
 
 ## Coding Guidelines
 I'm not too strict about coding styles. Just keep a few things in mind when developing for this BattleNetApi project:
