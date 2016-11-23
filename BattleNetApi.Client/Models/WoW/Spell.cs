@@ -31,6 +31,10 @@ namespace BattleNetApi.Client.Models.WoW
         public string Icon { get; set; }
         [JsonProperty("description")]
         public string Description { get; set; }
+        [JsonProperty("range")]
+        public string Range { get; set; }
+        [JsonProperty("powerCost")]
+        public string PowerCost { get; set; }
         [JsonProperty("castTime")]
         public string CastTime { get; set; }
         [JsonProperty("cooldown")]
