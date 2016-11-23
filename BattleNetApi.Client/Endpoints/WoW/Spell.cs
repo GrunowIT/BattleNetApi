@@ -1,0 +1,24 @@
+﻿using System.Threading.Tasks;
+using BattleNetApi.Client.Models.WoW;
+
+// ReSharper disable once CheckNamespace
+namespace BattleNetApi.Client
+{
+    public partial class ApiClient
+    {
+        public static string GetSpellUrl(int id)
+        {
+            return $"/wow/spell/{id}";
+        }
+
+        public Spell GetSpell(int id)
+        {
+            return GetApiResponse(ForgeApiRequest<Spell>(GetSpellUrl(id)));
+        }
+
+        public async Task<Spell> GetSpellAsync(int id)
+        {
+            return await GetApiResponseAsync(ForgeApiRequest<Spell>(GetSpellUrl(id)));
+        }
+    }
+}

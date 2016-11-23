@@ -80,5 +80,87 @@ namespace BattleNetApi.Client.Tests
             Assert.IsNotNull(leaderboard);
             Assert.IsTrue(!string.IsNullOrWhiteSpace(leaderboard.Challenge[0].Realm.Name));
         }
+
+        [TestMethod()]
+        public void GetDataBattlegroupsTest()
+        {
+            var battlegroups = GetApiClient.GetDataBattlegroups();
+            Assert.IsNotNull(battlegroups);
+            Assert.IsTrue(battlegroups.Battlegroups.Length > 0);
+        }
+
+        [TestMethod()]
+        public void GetDataCharacterRacesTest()
+        {
+            var races = GetApiClient.GetDataCharacterRaces();
+            Assert.IsNotNull(races);
+            Assert.IsTrue(races.Races.Length > 0);
+        }
+
+        [TestMethod()]
+        public void GetDataCharacterClassesTest()
+        {
+            var classes = GetApiClient.GetDataCharacterClasses();
+            Assert.IsNotNull(classes);
+            Assert.IsTrue(classes.Classes.Length > 0);
+        }
+
+        [TestMethod()]
+        public void GetDataCharacterAchievementsTest()
+        {
+            var data = GetApiClient.GetDataCharacterAchievements();
+            Assert.IsNotNull(data);
+            Assert.IsTrue(data.Achievements.Length > 0);
+        }
+
+        [TestMethod()]
+        public void GetDataGuildRewardsTest()
+        {
+            var data = GetApiClient.GetDataGuildRewards();
+            Assert.IsNotNull(data);
+            Assert.IsTrue(data.Rewards.Length > 0);
+        }
+
+        [TestMethod()]
+        public void GetDataGuildPerksTest()
+        {
+            var data = GetApiClient.GetDataGuildPerks();
+            Assert.IsNotNull(data);
+            Assert.IsTrue(data.Perks.Length > 0);
+        }
+
+        [TestMethod()]
+        public void GetDataGuildAchievementesTest()
+        {
+            var data = GetApiClient.GetDataGuildAchievements();
+            Assert.IsNotNull(data);
+            Assert.IsTrue(data.Achievements.Length > 0);
+        }
+
+        [TestMethod()]
+        public void GetDataItemClassesTest()
+        {
+            var data = GetApiClient.GetDataItemClasses();
+            Assert.IsNotNull(data);
+            Assert.IsTrue(data.Classes.Length > 0);
+        }
+
+        [TestMethod()]
+        public void GetDataTalentsTest()
+        {
+            var data = GetApiClient.GetDataTalents();
+            Assert.IsNotNull(data);
+            Assert.IsTrue(data.Warrior.Talents.Length > 0);
+            Assert.IsNotNull(data[1]);
+            Assert.IsTrue(data[1].Talents.Length > 0);
+        }
+
+        [TestMethod()]
+        public void GetDataPetTypesTest()
+        {
+            var data = GetApiClient.GetDataPetTypes();
+            Assert.IsNotNull(data);
+            Assert.IsTrue(data.PetTypes.Length > 0);
+        }
     }
 }
