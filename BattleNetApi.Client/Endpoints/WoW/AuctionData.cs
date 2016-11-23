@@ -22,6 +22,7 @@ using System.Web;
 using BattleNetApi.Client.Models.WoW;
 using BattleNetApi.Client.Networking;
 
+// ReSharper disable once CheckNamespace
 namespace BattleNetApi.Client
 {
     public partial class ApiClient
