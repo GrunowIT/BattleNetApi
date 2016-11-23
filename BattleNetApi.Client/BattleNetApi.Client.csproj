@@ -77,8 +77,8 @@
     <Compile Include="Models\WoW\BonusSummary.cs" />
     <Compile Include="Models\WoW\Boss.cs" />
     <Compile Include="Models\WoW\BossList.cs" />
-    <Compile Include="Models\WoW\BossLocation.cs" />
-    <Compile Include="Models\WoW\BossNpc.cs" />
+    <Compile Include="Models\WoW\Location.cs" />
+    <Compile Include="Models\WoW\Npc.cs" />
     <Compile Include="Models\WoW\PvpBrackets.cs" />
     <Compile Include="Models\WoW\ChallengeBronzeCriteria.cs" />
     <Compile Include="Models\WoW\Challenge.cs" />
