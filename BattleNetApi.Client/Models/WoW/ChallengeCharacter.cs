@@ -29,7 +29,7 @@ namespace BattleNetApi.Client.Models.WoW
         public string Realm { get; set; }
         [JsonProperty("battlegroup")]
         public string Battlegroup { get; set; }
-        [JsonProperty("_class")]
+        [JsonProperty("class")]
         public int Class { get; set; }
         [JsonProperty("race")]
         public int Race { get; set; }
