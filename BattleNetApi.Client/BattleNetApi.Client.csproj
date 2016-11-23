@@ -113,7 +113,7 @@
     <Compile Include="Models\WoW\ProfessionInfo.cs" />
     <Compile Include="Models\WoW\Professions.cs" />
     <Compile Include="Models\WoW\CharacterProgression.cs" />
-    <Compile Include="Models\WoW\Pvp.cs" />
+    <Compile Include="Models\WoW\CharacterPvp.cs" />
     <Compile Include="Models\WoW\RaidProgression.cs" />
     <Compile Include="Models\WoW\RaidBossProgression.cs" />
     <Compile Include="Models\WoW\Realm.cs" />
