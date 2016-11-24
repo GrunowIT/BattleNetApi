@@ -21,7 +21,7 @@ using Newtonsoft.Json;
 namespace BattleNetApi.Client.Models.WoW
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class Boss
+    public class Boss : IApiEndpoint
     {
         [JsonProperty("id")]
         public int Id { get; set; }

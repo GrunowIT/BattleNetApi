@@ -21,7 +21,7 @@ using Newtonsoft.Json;
 namespace BattleNetApi.Client.Models.WoW
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class BossList
+    public class BossList : IApiEndpoint
     {
         [JsonProperty("bosses")]
         public Boss[] Bosses { get; set; }

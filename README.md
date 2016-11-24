@@ -67,7 +67,8 @@ The following is a list taken from the battle.net API documentation, displaying 
 - [x] Auction API
 
 #### Boss API
-- [ ] Boss API (Models created)
+- [x] Master List
+- [x] Boss
 
 #### Challenge Mode API
 - [x] Realm Leaderboard

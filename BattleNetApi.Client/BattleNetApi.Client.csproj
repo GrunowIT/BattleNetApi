@@ -58,6 +58,7 @@
     <Compile Include="Endpoints\WoW\DataResources.cs" />
     <Compile Include="Endpoints\WoW\Item.cs" />
     <Compile Include="Endpoints\WoW\RealmStatus.cs" />
+    <Compile Include="Endpoints\WoW\Boss.cs" />
     <Compile Include="Endpoints\WoW\Zone.cs" />
     <Compile Include="Endpoints\WoW\Spell.cs" />
     <Compile Include="Endpoints\WoW\Recipe.cs" />

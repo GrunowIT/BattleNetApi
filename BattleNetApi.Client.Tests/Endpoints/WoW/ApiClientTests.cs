@@ -162,5 +162,21 @@ namespace BattleNetApi.Client.Tests
             Assert.IsNotNull(data);
             Assert.IsTrue(data.PetTypes.Length > 0);
         }
+
+        [TestMethod()]
+        public void GetBossListTest()
+        {
+            var data = GetApiClient.GetBossList();
+            Assert.IsNotNull(data);
+            Assert.IsTrue(data.Bosses.Length > 0);
+        }
+
+        [TestMethod()]
+        public void GetBossTest()
+        {
+            var data = GetApiClient.GetBoss(24723);
+            Assert.IsNotNull(data);
+            Assert.AreEqual(24723, data.Id);
+        }
     }
 }
