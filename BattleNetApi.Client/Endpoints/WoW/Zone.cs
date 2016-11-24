@@ -25,12 +25,12 @@ namespace BattleNetApi.Client
             return await GetApiResponseAsync(ForgeApiRequest<Zone>(GetZoneUrl(id)));
         }
 
-        public ZoneList GetZoneList(int id)
+        public ZoneList GetZoneList()
         {
             return GetApiResponse(ForgeApiRequest<ZoneList>(GetZoneListUrl()));
         }
 
-        public async Task<ZoneList> GetZoneListAsync(int id)
+        public async Task<ZoneList> GetZoneListAsync()
         {
             return await GetApiResponseAsync(ForgeApiRequest<ZoneList>(GetZoneListUrl()));
         }
