@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleNetApi.Client", "Batt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleNetApi.Client.Tests", "BattleNetApi.Client.Tests\BattleNetApi.Client.Tests.csproj", "{7D97AFC5-8A44-46C8-867C-612CD3AE95C0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "General Files", "General Files", "{ADE3C80E-4DB1-4F70-95F5-3DAF3DCB1993}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
