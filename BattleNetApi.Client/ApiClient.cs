@@ -30,17 +30,37 @@ namespace BattleNetApi.Client
         private ApiProvider ApiProvider { get; }
 
         private string ApiKey { get; }
+        private string ClientId { get; }
+        private string ClientSecret { get; }
 
-        public ApiClient(string apiKey, ApiClientConfiguration clientConfiguration = null)
+        /// <summary>
+        /// Creates a new instance of an ApiClient.
+        /// </summary>
+        /// <param name="apiKey"></param>
+        /// <param name="clientConfiguration"></param>
+        /// <param name="clientId">ClientID required for OAuth, otherwise optional.</param>
+        /// <param name="clientSecret">ClientSecret required for OAuth, otherwise optional.</param>
+        public ApiClient(string apiKey, ApiClientConfiguration clientConfiguration = null, string clientId = null, string clientSecret = null)
         {
             ApiKey = apiKey;
             ClientConfiguration = clientConfiguration ?? new ApiClientConfiguration();
+            ClientId = clientId;
+            ClientSecret = clientSecret;
 
             ApiProvider = new ApiProvider(ClientConfiguration.MaxRequestsPerTimeSpan, ClientConfiguration.PerTimeSpan);
         }
 
         private WowApiClient _wowApiClient;
         public WowApiClient WoW => _wowApiClient ?? (_wowApiClient = new WowApiClient(ApiKey, ClientConfiguration));
+
+        private D3ApiClient _d3ApiClient;
+        public D3ApiClient D3 => _d3ApiClient ?? (_d3ApiClient = new D3ApiClient(ApiKey, ClientConfiguration));
+
+        private Sc2ApiClient _sc2ApiClient;
+        public Sc2ApiClient SC2 => _sc2ApiClient ?? (_sc2ApiClient = new Sc2ApiClient(ApiKey, ClientConfiguration));
+
+        private OauthApiClient _oauthApiClient;
+        public OauthApiClient OAuth => _oauthApiClient ?? (_oauthApiClient = new OauthApiClient(ApiKey, ClientId, ClientSecret, ClientConfiguration));
 
         protected Uri GetEndpointUri(string relativePath, ApiQueryParameters queryParameters = null)
         {
@@ -80,9 +100,30 @@ namespace BattleNetApi.Client
         }
     }
 
-    public partial class WowApiClient : ApiClient
+    public sealed partial class WowApiClient : ApiClient
     {
         internal WowApiClient(string apiKey, ApiClientConfiguration clientConfiguration = null) : base(apiKey, clientConfiguration)
+        {
+        }
+    }
+
+    public sealed partial class D3ApiClient : ApiClient
+    {
+        internal D3ApiClient(string apiKey, ApiClientConfiguration clientConfiguration = null) : base(apiKey, clientConfiguration)
+        {
+        }
+    }
+
+    public sealed partial class Sc2ApiClient : ApiClient
+    {
+        internal Sc2ApiClient(string apiKey, ApiClientConfiguration clientConfiguration = null) : base(apiKey, clientConfiguration)
+        {
+        }
+    }
+
+    public sealed partial class OauthApiClient : ApiClient
+    {
+        internal OauthApiClient(string apiKey, string clientId, string clientSecret, ApiClientConfiguration clientConfiguration = null) : base(apiKey, clientConfiguration, clientId, clientSecret)
         {
         }
     }
