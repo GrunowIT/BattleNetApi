@@ -21,7 +21,7 @@ using Newtonsoft.Json;
 namespace BattleNetApi.Client.Models.D3
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class Hero
+    public class Hero : IApiEndpoint
     {
         [JsonProperty("id")]
         public int Id { get; set; }

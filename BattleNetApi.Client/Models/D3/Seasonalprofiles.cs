@@ -21,7 +21,7 @@ using Newtonsoft.Json;
 namespace BattleNetApi.Client.Models.D3
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class Seasonalprofiles
+    public class SeasonalProfiles
     {
         [JsonProperty("season0")]
         public SeasonInfo Season0 { get; set; }

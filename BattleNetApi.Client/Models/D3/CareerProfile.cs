@@ -21,7 +21,7 @@ using Newtonsoft.Json;
 namespace BattleNetApi.Client.Models.D3
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class CareerProfile
+    public class CareerProfile : IApiEndpoint
     {
         [JsonProperty("battleTag")]
         public string BattleTag { get; set; }
@@ -36,7 +36,7 @@ namespace BattleNetApi.Client.Models.D3
         [JsonProperty("guildName")]
         public string GuildName { get; set; }
         [JsonProperty("heroes")]
-        public Hero[] Heroes { get; set; }
+        public CareerProfileHero[] Heroes { get; set; }
         [JsonProperty("lastHeroPlayed")]
         public int LastHeroPlayed { get; set; }
         [JsonProperty("lastUpdated")]
@@ -70,6 +70,6 @@ namespace BattleNetApi.Client.Models.D3
         [JsonProperty("mysticSeasonHardcore")]
         public ArtisanInfo MysticSeasonHardcore { get; set; }
         [JsonProperty("seasonalProfiles")]
-        public Seasonalprofiles SeasonalProfiles { get; set; }
+        public SeasonalProfiles SeasonalProfiles { get; set; }
     }
 }

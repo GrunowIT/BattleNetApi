@@ -36,6 +36,6 @@ namespace BattleNetApi.Client.Models.D3
         [JsonProperty("highestHardcoreLevel")]
         public int HighestHardcoreLevel { get; set; }
         [JsonProperty("progression")]
-        public ActProgression Progression { get; set; }
+        public ActCompletionInfo Progression { get; set; }
     }
 }
