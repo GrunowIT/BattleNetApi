@@ -64,6 +64,26 @@
     <Compile Include="Endpoints\WoW\Recipe.cs" />
     <Compile Include="Extensions\FieldsEnumExtensions.cs" />
     <Compile Include="Extensions\RegionExtensions.cs" />
+    <Compile Include="Models\D3\ActCompletedQuest.cs" />
+    <Compile Include="Models\D3\ActCompletionInfo.cs" />
+    <Compile Include="Models\D3\ActProgression.cs" />
+    <Compile Include="Models\D3\ActProgressionInfo.cs" />
+    <Compile Include="Models\D3\ArtisanInfo.cs" />
+    <Compile Include="Models\D3\CareerProfile.cs" />
+    <Compile Include="Models\D3\EquippedItems.cs" />
+    <Compile Include="Models\D3\FollowerInfo.cs" />
+    <Compile Include="Models\D3\Followers.cs" />
+    <Compile Include="Models\D3\Hero.cs" />
+    <Compile Include="Models\D3\Skills.cs" />
+    <Compile Include="Models\D3\ItemInfo.cs" />
+    <Compile Include="Models\D3\Kills.cs" />
+    <Compile Include="Models\D3\Rune.cs" />
+    <Compile Include="Models\D3\Seasonalprofiles.cs" />
+    <Compile Include="Models\D3\SeasonInfo.cs" />
+    <Compile Include="Models\D3\SkillInfo.cs" />
+    <Compile Include="Models\D3\SkillInfoWrapper.cs" />
+    <Compile Include="Models\D3\StatsInfo.cs" />
+    <Compile Include="Models\D3\TimePlayed.cs" />
     <Compile Include="Models\IApiEndpoint.cs" />
     <Compile Include="Models\WoW\Achievement.cs" />
     <Compile Include="Models\WoW\AchievementCategory.cs" />
@@ -166,7 +186,6 @@
   <ItemGroup>
     <Folder Include="Endpoints\D3\" />
     <Folder Include="Endpoints\SC2\" />
-    <Folder Include="Models\D3\" />
     <Folder Include="Models\SC2\" />
   </ItemGroup>
   <ItemGroup>
