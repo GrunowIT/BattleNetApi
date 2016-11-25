@@ -27,7 +27,7 @@ namespace BattleNetApi.Client.Tests
     [TestClass()]
     public class ApiClientTests
     {
-        private static WowApiClient GetWowApiClient => new WowApiClient(ConfigurationManager.AppSettings["apikey"], new ApiClientConfiguration(Region.EU, Locale.en_GB));
+        private static WowApiClient GetWowApiClient => new ApiClient(ConfigurationManager.AppSettings["apikey"], new ApiClientConfiguration(Region.EU, Locale.en_GB)).WoW;
 
         [TestMethod()]
         public void GetAchievementTest()

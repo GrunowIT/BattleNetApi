@@ -18,6 +18,7 @@
 
 using System;
 using System.Threading.Tasks;
+using BattleNetApi.Client.Endpoints;
 using BattleNetApi.Client.Models;
 using BattleNetApi.Client.Networking;
 using BattleNetApi.Client.Utilities;
@@ -38,6 +39,9 @@ namespace BattleNetApi.Client
 
             ApiProvider = new ApiProvider(ClientConfiguration.MaxRequestsPerTimeSpan, ClientConfiguration.PerTimeSpan);
         }
+
+        private WowApiClient _wowApiClient;
+        public WowApiClient WoW => _wowApiClient ?? (_wowApiClient = new WowApiClient(ApiKey, ClientConfiguration));
 
         protected Uri GetEndpointUri(string relativePath, ApiQueryParameters queryParameters = null)
         {
