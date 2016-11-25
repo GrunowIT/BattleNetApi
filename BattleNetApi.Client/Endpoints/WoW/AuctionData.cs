@@ -23,7 +23,7 @@ using BattleNetApi.Client.Models.WoW;
 using BattleNetApi.Client.Networking;
 
 // ReSharper disable once CheckNamespace
-namespace BattleNetApi.Client.Endpoints
+namespace BattleNetApi.Client
 {
     public partial class WowApiClient
     {

@@ -52,7 +52,6 @@
     <Compile Include="Constants\GuildFields.cs" />
     <Compile Include="Constants\Locale.cs" />
     <Compile Include="Constants\Region.cs" />
-    <Compile Include="Endpoints\WowApiClient.cs" />
     <Compile Include="Endpoints\WoW\Achievement.cs" />
     <Compile Include="Endpoints\WoW\AuctionData.cs" />
     <Compile Include="Endpoints\WoW\Challenge.cs" />

@@ -19,7 +19,6 @@
 using System.Configuration;
 using System.Linq;
 using BattleNetApi.Client.Constants;
-using BattleNetApi.Client.Endpoints;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BattleNetApi.Client.Tests

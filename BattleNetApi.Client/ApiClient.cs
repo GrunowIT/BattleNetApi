@@ -18,7 +18,6 @@
 
 using System;
 using System.Threading.Tasks;
-using BattleNetApi.Client.Endpoints;
 using BattleNetApi.Client.Models;
 using BattleNetApi.Client.Networking;
 using BattleNetApi.Client.Utilities;
@@ -78,6 +77,13 @@ namespace BattleNetApi.Client
         protected async Task<T> GetApiResponseAsync<T>(ApiRequest<T> apiRequest) where T : IApiEndpoint
         {
             return await ApiProvider.MakeRequestAsync(apiRequest);
+        }
+    }
+
+    public partial class WowApiClient : ApiClient
+    {
+        internal WowApiClient(string apiKey, ApiClientConfiguration clientConfiguration = null) : base(apiKey, clientConfiguration)
+        {
         }
     }
 }
