@@ -38,8 +38,8 @@ The following is a list taken from the battle.net API documentation, displaying 
 
 ### D3 Community API
 #### Profile API
-- [ ] Career Profile
-- [ ] Hero Profile
+- [x] Career Profile
+- [x] Hero Profile
 
 #### Data Resources
 - [ ] Item Data
