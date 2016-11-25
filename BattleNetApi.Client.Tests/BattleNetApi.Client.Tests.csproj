@@ -51,7 +51,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Endpoints\WoW\ApiClientTests.cs" />
+    <Compile Include="Endpoints\D3\D3ApiClientTests.cs" />
+    <Compile Include="Endpoints\WoW\WowApiClientTests.cs" />
     <Compile Include="Extensions\FieldsEnumExtensionsTests.cs" />
     <Compile Include="Extensions\RegionExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
