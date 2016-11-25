@@ -21,9 +21,9 @@ using System.Web;
 using BattleNetApi.Client.Models.WoW;
 
 // ReSharper disable once CheckNamespace
-namespace BattleNetApi.Client
+namespace BattleNetApi.Client.Endpoints
 {
-    public partial class ApiClient
+    public partial class WowApiClient
     {
         private static string GetChallengeRealmLeaderboardUrl(string realm)
         {

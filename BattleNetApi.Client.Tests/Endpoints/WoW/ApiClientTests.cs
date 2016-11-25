@@ -19,6 +19,7 @@
 using System.Configuration;
 using System.Linq;
 using BattleNetApi.Client.Constants;
+using BattleNetApi.Client.Endpoints;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BattleNetApi.Client.Tests
@@ -26,12 +27,12 @@ namespace BattleNetApi.Client.Tests
     [TestClass()]
     public class ApiClientTests
     {
-        private static ApiClient GetApiClient => new ApiClient(ConfigurationManager.AppSettings["apikey"], new ApiClientConfiguration(Region.EU, Locale.en_GB));
+        private static WowApiClient GetWowApiClient => new WowApiClient(ConfigurationManager.AppSettings["apikey"], new ApiClientConfiguration(Region.EU, Locale.en_GB));
 
         [TestMethod()]
         public void GetAchievementTest()
         {
-            var achievement = GetApiClient.GetAchievement(2144);
+            var achievement = GetWowApiClient.GetAchievement(2144);
             Assert.IsNotNull(achievement);
             Assert.AreEqual(2144, achievement.Id);
         }
@@ -39,7 +40,7 @@ namespace BattleNetApi.Client.Tests
         [TestMethod()]
         public void GetAuctionDataTest()
         {
-            var auctionResponse = GetApiClient.GetAuctionData("malganis");
+            var auctionResponse = GetWowApiClient.GetAuctionData("malganis");
             Assert.IsNotNull(auctionResponse);
             Assert.IsTrue(auctionResponse.AuctionFiles.Length > 0, "No auction files found.");
             var auctionFile = auctionResponse.AuctionFiles.First();
@@ -49,7 +50,7 @@ namespace BattleNetApi.Client.Tests
         [TestMethod()]
         public void GetRealmStatusListTest()
         {
-            var realmList = GetApiClient.GetRealmStatusList();
+            var realmList = GetWowApiClient.GetRealmStatusList();
             Assert.IsNotNull(realmList);
             Assert.IsTrue(realmList.Realms.Length > 0, "No realm found.");
             Assert.IsTrue(realmList.ConnectedRealms.Any(), "No connected realms found.");
@@ -59,7 +60,7 @@ namespace BattleNetApi.Client.Tests
         [TestMethod()]
         public void GetItemTest()
         {
-            var item = GetApiClient.GetItem(18803);
+            var item = GetWowApiClient.GetItem(18803);
             Assert.IsNotNull(item);
             Assert.AreEqual(18803, item.Id);
         }
@@ -67,7 +68,7 @@ namespace BattleNetApi.Client.Tests
         [TestMethod()]
         public void GetItemSetTest()
         {
-            var itemSet = GetApiClient.GetItemSet(1060);
+            var itemSet = GetWowApiClient.GetItemSet(1060);
             Assert.IsNotNull(itemSet);
             Assert.AreEqual(1060, itemSet.Id, "Item id mismatch.");
             Assert.IsTrue(itemSet.Items.Length > 0, "No items found in set.");
@@ -76,7 +77,7 @@ namespace BattleNetApi.Client.Tests
         [TestMethod()]
         public void GetChallengeRealmLeaderboardTest()
         {
-            var leaderboard = GetApiClient.GetChallengeRealmLeaderboard("malganis");
+            var leaderboard = GetWowApiClient.GetChallengeRealmLeaderboard("malganis");
             Assert.IsNotNull(leaderboard);
             Assert.IsTrue(!string.IsNullOrWhiteSpace(leaderboard.Challenge[0].Realm.Name));
         }
@@ -84,7 +85,7 @@ namespace BattleNetApi.Client.Tests
         [TestMethod()]
         public void GetDataBattlegroupsTest()
         {
-            var battlegroups = GetApiClient.GetDataBattlegroups();
+            var battlegroups = GetWowApiClient.GetDataBattlegroups();
             Assert.IsNotNull(battlegroups);
             Assert.IsTrue(battlegroups.Battlegroups.Length > 0);
         }
@@ -92,7 +93,7 @@ namespace BattleNetApi.Client.Tests
         [TestMethod()]
         public void GetDataCharacterRacesTest()
         {
-            var races = GetApiClient.GetDataCharacterRaces();
+            var races = GetWowApiClient.GetDataCharacterRaces();
             Assert.IsNotNull(races);
             Assert.IsTrue(races.Races.Length > 0);
         }
@@ -100,7 +101,7 @@ namespace BattleNetApi.Client.Tests
         [TestMethod()]
         public void GetDataCharacterClassesTest()
         {
-            var classes = GetApiClient.GetDataCharacterClasses();
+            var classes = GetWowApiClient.GetDataCharacterClasses();
             Assert.IsNotNull(classes);
             Assert.IsTrue(classes.Classes.Length > 0);
         }
@@ -108,7 +109,7 @@ namespace BattleNetApi.Client.Tests
         [TestMethod()]
         public void GetDataCharacterAchievementsTest()
         {
-            var data = GetApiClient.GetDataCharacterAchievements();
+            var data = GetWowApiClient.GetDataCharacterAchievements();
             Assert.IsNotNull(data);
             Assert.IsTrue(data.Achievements.Length > 0);
         }
@@ -116,7 +117,7 @@ namespace BattleNetApi.Client.Tests
         [TestMethod()]
         public void GetDataGuildRewardsTest()
         {
-            var data = GetApiClient.GetDataGuildRewards();
+            var data = GetWowApiClient.GetDataGuildRewards();
             Assert.IsNotNull(data);
             Assert.IsTrue(data.Rewards.Length > 0);
         }
@@ -124,7 +125,7 @@ namespace BattleNetApi.Client.Tests
         [TestMethod()]
         public void GetDataGuildPerksTest()
         {
-            var data = GetApiClient.GetDataGuildPerks();
+            var data = GetWowApiClient.GetDataGuildPerks();
             Assert.IsNotNull(data);
             Assert.IsTrue(data.Perks.Length > 0);
         }
@@ -132,7 +133,7 @@ namespace BattleNetApi.Client.Tests
         [TestMethod()]
         public void GetDataGuildAchievementesTest()
         {
-            var data = GetApiClient.GetDataGuildAchievements();
+            var data = GetWowApiClient.GetDataGuildAchievements();
             Assert.IsNotNull(data);
             Assert.IsTrue(data.Achievements.Length > 0);
         }
@@ -140,7 +141,7 @@ namespace BattleNetApi.Client.Tests
         [TestMethod()]
         public void GetDataItemClassesTest()
         {
-            var data = GetApiClient.GetDataItemClasses();
+            var data = GetWowApiClient.GetDataItemClasses();
             Assert.IsNotNull(data);
             Assert.IsTrue(data.Classes.Length > 0);
         }
@@ -148,7 +149,7 @@ namespace BattleNetApi.Client.Tests
         [TestMethod()]
         public void GetDataTalentsTest()
         {
-            var data = GetApiClient.GetDataTalents();
+            var data = GetWowApiClient.GetDataTalents();
             Assert.IsNotNull(data);
             Assert.IsTrue(data.Warrior.Talents.Length > 0);
             Assert.IsNotNull(data[1]);
@@ -158,7 +159,7 @@ namespace BattleNetApi.Client.Tests
         [TestMethod()]
         public void GetDataPetTypesTest()
         {
-            var data = GetApiClient.GetDataPetTypes();
+            var data = GetWowApiClient.GetDataPetTypes();
             Assert.IsNotNull(data);
             Assert.IsTrue(data.PetTypes.Length > 0);
         }
@@ -166,7 +167,7 @@ namespace BattleNetApi.Client.Tests
         [TestMethod()]
         public void GetBossListTest()
         {
-            var data = GetApiClient.GetBossList();
+            var data = GetWowApiClient.GetBossList();
             Assert.IsNotNull(data);
             Assert.IsTrue(data.Bosses.Length > 0);
         }
@@ -174,7 +175,7 @@ namespace BattleNetApi.Client.Tests
         [TestMethod()]
         public void GetBossTest()
         {
-            var data = GetApiClient.GetBoss(24723);
+            var data = GetWowApiClient.GetBoss(24723);
             Assert.IsNotNull(data);
             Assert.AreEqual(24723, data.Id);
         }

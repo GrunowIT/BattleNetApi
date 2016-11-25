@@ -24,7 +24,7 @@ using BattleNetApi.Client.Utilities;
 
 namespace BattleNetApi.Client
 {
-    public sealed partial class ApiClient
+    public class ApiClient
     {
         public ApiClientConfiguration ClientConfiguration { get; }
         private ApiProvider ApiProvider { get; }
@@ -39,7 +39,7 @@ namespace BattleNetApi.Client
             ApiProvider = new ApiProvider(ClientConfiguration.MaxRequestsPerTimeSpan, ClientConfiguration.PerTimeSpan);
         }
 
-        public Uri GetEndpointUri(string relativePath, ApiQueryParameters queryParameters = null)
+        protected Uri GetEndpointUri(string relativePath, ApiQueryParameters queryParameters = null)
         {
             if (queryParameters == null)
                 queryParameters = new ApiQueryParameters();
@@ -53,12 +53,12 @@ namespace BattleNetApi.Client
             return endpointUri;
         }
 
-        public ApiRequest<T> ForgeApiRequest<T>(string relativeEndpointUri, ApiQueryParameters apiQueryParameters = null) where T : IApiEndpoint
+        protected ApiRequest<T> ForgeApiRequest<T>(string relativeEndpointUri, ApiQueryParameters apiQueryParameters = null) where T : IApiEndpoint
         {
             return new ApiRequest<T>(GetEndpointUri(relativeEndpointUri, apiQueryParameters));
         }
 
-        public T GetApiResponse<T>(ApiRequest<T> apiRequest) where T : IApiEndpoint
+        protected T GetApiResponse<T>(ApiRequest<T> apiRequest) where T : IApiEndpoint
         {
             var apiResponse = ApiProvider.MakeRequestAsync(apiRequest);
             apiResponse.Wait(ClientConfiguration.ApiWaitingTimeSpan);
@@ -71,7 +71,7 @@ namespace BattleNetApi.Client
             return apiResponse.Result;
         }
 
-        public async Task<T> GetApiResponseAsync<T>(ApiRequest<T> apiRequest) where T : IApiEndpoint
+        protected async Task<T> GetApiResponseAsync<T>(ApiRequest<T> apiRequest) where T : IApiEndpoint
         {
             return await ApiProvider.MakeRequestAsync(apiRequest);
         }

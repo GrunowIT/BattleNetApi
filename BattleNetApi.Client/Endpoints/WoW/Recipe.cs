@@ -2,9 +2,9 @@
 using BattleNetApi.Client.Models.WoW;
 
 // ReSharper disable once CheckNamespace
-namespace BattleNetApi.Client
+namespace BattleNetApi.Client.Endpoints
 {
-    public partial class ApiClient
+    public partial class WowApiClient
     {
         public static string GetRecipeUrl(int id)
         {

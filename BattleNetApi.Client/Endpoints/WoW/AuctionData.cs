@@ -23,9 +23,9 @@ using BattleNetApi.Client.Models.WoW;
 using BattleNetApi.Client.Networking;
 
 // ReSharper disable once CheckNamespace
-namespace BattleNetApi.Client
+namespace BattleNetApi.Client.Endpoints
 {
-    public partial class ApiClient
+    public partial class WowApiClient
     {
         private static string GetAuctionDataUrl(string realm)
         {

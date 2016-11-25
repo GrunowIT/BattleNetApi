@@ -20,9 +20,9 @@ using System.Threading.Tasks;
 using BattleNetApi.Client.Models.WoW;
 
 // ReSharper disable once CheckNamespace
-namespace BattleNetApi.Client
+namespace BattleNetApi.Client.Endpoints
 {
-    public partial class ApiClient
+    public partial class WowApiClient
     {
         private static readonly string GetDataResourceUrlBase = "/wow/data/";
         private static readonly string GetDataResourceUrlBattlegroups = GetDataResourceUrlBase + "battlegroups/";
