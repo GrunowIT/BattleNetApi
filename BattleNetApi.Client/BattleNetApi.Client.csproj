@@ -167,6 +167,8 @@
   <ItemGroup>
     <Folder Include="Endpoints\D3\" />
     <Folder Include="Endpoints\SC2\" />
+    <Folder Include="Models\D3\" />
+    <Folder Include="Models\SC2\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
