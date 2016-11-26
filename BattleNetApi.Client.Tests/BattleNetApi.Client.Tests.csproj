@@ -54,6 +54,7 @@
     <Compile Include="Endpoints\D3\D3ApiClientTests.cs" />
     <Compile Include="Endpoints\WoW\WowApiClientTests.cs" />
     <Compile Include="Extensions\FieldsEnumExtensionsTests.cs" />
+    <Compile Include="Extensions\Models\D3\ItemInfoBaseExtensionsTests.cs" />
     <Compile Include="Extensions\RegionExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -31,6 +31,9 @@ client.GetAuctionData("realm-name")
 ```
 The actual auction data is not directly received. Instead the `Auctions` property on `AuctionFile` objects lazy loads this data when accessed. The lazy loading takes place in some kind of "Download Manager", which limits the maximum concurrent number of downloads. The number of concurrent downloads is soon to be configurable.
 
+All API 'getter' methods are also implemented asynchronous. You can append Async to every method and then await the result.
+
+
 For a detailed documentation of all features, see the [Wiki](https://github.com/GrunowIT/BattleNetApi/wiki).
 
 ## API implementations

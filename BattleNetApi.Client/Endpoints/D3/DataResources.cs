@@ -1,4 +1,4 @@
-/*
+﻿/*
     BattleNetApi - A .NET battle.net API library.
     Copyright (C) 2016  Sebastian Grunow <sebastian@grunow-it.de>
 
@@ -16,23 +16,29 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
     */
 
-using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Threading.Tasks;
+using BattleNetApi.Client.Models.D3;
 
-namespace BattleNetApi.Client.Models.D3
+// ReSharper disable once CheckNamespace
+namespace BattleNetApi.Client
 {
-    [JsonObject(MemberSerialization.OptIn)]
-    public class FollowerInfo
+    public partial class D3ApiClient
     {
-        [JsonProperty("slug")]
-        public string Slug { get; set; }
-        [JsonProperty("level")]
-        public int Level { get; set; }
-        [JsonProperty("items")]
-        public Dictionary<string, EquippedItemInfo> Items { get; set; }
-        [JsonProperty("stats")]
-        public StatsInfo Stats { get; set; }
-        [JsonProperty("skills")]
-        public SkillInfoWrapper[] Skills { get; set; }
+        private static string GetDataBaseUrl = "/d3/data/";
+
+        private static string GetDataItemInfoUrl(string itemId)
+        {
+            return GetDataBaseUrl + $"item/{itemId}";
+        }
+
+        public ItemInfo GetDataItemInfo(string itemId)
+        {
+            return GetApiResponse(ForgeApiRequest<ItemInfo>(GetDataItemInfoUrl(itemId)));
+        }
+
+        public async Task<ItemInfo> GetDataItemInfoAsync(string itemId)
+        {
+            return await GetApiResponseAsync(ForgeApiRequest<ItemInfo>(GetDataItemInfoUrl(itemId)));
+        }
     }
 }

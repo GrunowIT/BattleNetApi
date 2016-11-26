@@ -1,4 +1,4 @@
-/*
+﻿/*
     BattleNetApi - A .NET battle.net API library.
     Copyright (C) 2016  Sebastian Grunow <sebastian@grunow-it.de>
 
@@ -16,26 +16,70 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
     */
 
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace BattleNetApi.Client.Models.D3
 {
-    [JsonObject(MemberSerialization.OptIn)]
-    public class ItemInfo
+    public class ItemInfo : ItemInfoBase, IApiEndpoint
     {
-        [JsonProperty("id")]
-        public string Id { get; set; }
-        [JsonProperty("name")]
-        public string Name { get; set; }
-        [JsonProperty("icon")]
-        public string Icon { get; set; }
-        [JsonProperty("displayColor")]
-        public string DisplayColor { get; set; }
-        [JsonProperty("tooltipParams")]
-        public string TooltipParams { get; set; }
-        [JsonProperty("setItemsEquipped")]
-        public string[] SetItemsEquipped { get; set; }
-        [JsonProperty("transmogItem")]
-        public ItemInfo TransmogItem { get; set; }
+        [JsonProperty("requiredLevel")]
+        public int RequiredLevel { get; set; }
+        [JsonProperty("itemLevel")]
+        public int ItemLevel { get; set; }
+        [JsonProperty("stackSizeMax")]
+        public int StackSizeMax { get; set; }
+        [JsonProperty("bonusAffixes")]
+        public int BonusAffixes { get; set; }
+        [JsonProperty("bonusAffixesMax")]
+        public int BonusAffixesMax { get; set; }
+        [JsonProperty("accountBound")]
+        public bool AccountBound { get; set; }
+        [JsonProperty("flavorText")]
+        public string FlavorText { get; set; }
+        [JsonProperty("typeName")]
+        public string TypeName { get; set; }
+        [JsonProperty("type")]
+        public ItemType Type { get; set; }
+        [JsonProperty("damageRange")]
+        public string DamageRange { get; set; }
+        [JsonProperty("dps")]
+        public StatsInfoMinMax Dps { get; set; }
+        [JsonProperty("attacksPerSecond")]
+        public StatsInfoMinMax AttacksPerSecond { get; set; }
+        [JsonProperty("attacksPerSecondText")]
+        public string AttacksPerSecondText { get; set; }
+        [JsonProperty("minDamage")]
+        public StatsInfoMinMax MinDamage { get; set; }
+        [JsonProperty("maxDamage")]
+        public StatsInfoMinMax MaxDamage { get; set; }
+        [JsonProperty("elementalType")]
+        public string ElementalType { get; set; }
+        [JsonProperty("armor")]
+        public StatsInfoMinMax Armor { get; set; }
+        [JsonProperty("slots")]
+        public string[] Slots { get; set; }
+        [JsonProperty("attributes")]
+        public ItemAttributes Attributes { get; set; }
+        [JsonProperty("attributesRaw")]
+        public Dictionary<string, StatsInfoMinMax> AttributesRaw { get; set; }
+        [JsonProperty("randomAffixes")]
+        public RandomAffix[] RandomAffixes { get; set; }
+        [JsonProperty("gems")]
+        public Gem[] Gems { get; set; }
+        [JsonProperty("socketEffects")]
+        public object[] SocketEffects { get; set; }
+        [JsonProperty("recipe")]
+        public Recipe Recipe { get; set; }
+        [JsonProperty("craftedBy")]
+        public CraftedBy[] CraftedBy { get; set; }
+        [JsonProperty("seasonRequiredToDrop")]
+        public int SeasonRequiredToDrop { get; set; }
+        [JsonProperty("isSeasonRequiredToDrop")]
+        public bool IsSeasonRequiredToDrop { get; set; }
+        [JsonProperty("description")]
+        public object Description { get; set; }
+        [JsonProperty("blockChance")]
+        public string BlockChance { get; set; }
     }
 }

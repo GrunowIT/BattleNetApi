@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
     */
 
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace BattleNetApi.Client.Models.D3
@@ -46,7 +47,7 @@ namespace BattleNetApi.Client.Models.D3
         [JsonProperty("skills")]
         public Skills Skills { get; set; }
         [JsonProperty("items")]
-        public EquippedItems Items { get; set; }
+        public Dictionary<string, EquippedItemInfo> Items { get; set; }
         [JsonProperty("followers")]
         public Followers Followers { get; set; }
         [JsonProperty("legendaryPowers")]

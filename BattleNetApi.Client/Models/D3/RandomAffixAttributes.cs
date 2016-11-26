@@ -21,18 +21,11 @@ using Newtonsoft.Json;
 
 namespace BattleNetApi.Client.Models.D3
 {
-    [JsonObject(MemberSerialization.OptIn)]
-    public class FollowerInfo
+    public class RandomAffixAttributes
     {
-        [JsonProperty("slug")]
-        public string Slug { get; set; }
-        [JsonProperty("level")]
-        public int Level { get; set; }
-        [JsonProperty("items")]
-        public Dictionary<string, EquippedItemInfo> Items { get; set; }
-        [JsonProperty("stats")]
-        public StatsInfo Stats { get; set; }
-        [JsonProperty("skills")]
-        public SkillInfoWrapper[] Skills { get; set; }
+        [JsonProperty("attributes")]
+        public AttributesInfo Attributes { get; set; }
+        [JsonProperty("attributesRaw")]
+        public Dictionary<string, StatsInfoMinMax> AttributesRaw { get; set; }
     }
 }
