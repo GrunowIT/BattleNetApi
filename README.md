@@ -45,9 +45,9 @@ The following is a list taken from the battle.net API documentation, displaying 
 - [x] Hero Profile
 
 #### Data Resources
-- [ ] Item Data
-- [ ] Follower Data
-- [ ] Artisan Data
+- [x] Item Data
+- [x] Follower Data
+- [x] Artisan Data
 
 ### SC2 Community API
 #### Profile API
