@@ -20,11 +20,16 @@ using Newtonsoft.Json;
 
 namespace BattleNetApi.Client.Models.D3
 {
-    public class Reagent
+    [JsonObject(MemberSerialization.OptIn)]
+    public class HeroSkillInfo
     {
-        [JsonProperty("quantity")]
-        public int Quantity { get; set; }
-        [JsonProperty("item")]
-        public ItemInfoBase Item { get; set; }
+        [JsonProperty("skill")]
+        public SkillInfo Skill { get; set; }
+
+        /// <summary>
+        /// Seems to be set only for active skills.
+        /// </summary>
+        [JsonProperty("rune")]
+        public Rune Rune { get; set; }
     }
 }

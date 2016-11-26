@@ -1,4 +1,4 @@
-/*
+﻿/*
     BattleNetApi - A .NET battle.net API library.
     Copyright (C) 2016  Sebastian Grunow <sebastian@grunow-it.de>
 
@@ -16,23 +16,29 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
     */
 
-using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace BattleNetApi.Client.Models.D3
 {
-    [JsonObject(MemberSerialization.OptIn)]
-    public class FollowerInfo
+    public class FollowerInfo : IApiEndpoint
     {
         [JsonProperty("slug")]
         public string Slug { get; set; }
-        [JsonProperty("level")]
-        public int Level { get; set; }
-        [JsonProperty("items")]
-        public Dictionary<string, EquippedItemInfo> Items { get; set; }
-        [JsonProperty("stats")]
-        public StatsInfo Stats { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
+        [JsonProperty("realName")]
+        public string RealName { get; set; }
+        [JsonProperty("portrait")]
+        public string Portrait { get; set; }
         [JsonProperty("skills")]
-        public SkillInfoWrapper[] Skills { get; set; }
+        public FollowerSkills Skills { get; set; }
+    }
+
+    public class FollowerSkills
+    {
+        [JsonProperty("active")]
+        public SkillInfo[] Active { get; set; }
+        [JsonProperty("passive")]
+        public SkillInfo[] Passive { get; set; }
     }
 }

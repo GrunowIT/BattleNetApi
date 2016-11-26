@@ -45,11 +45,11 @@ namespace BattleNetApi.Client.Models.D3
         [JsonProperty("seasonCreated")]
         public int SeasonCreated { get; set; }
         [JsonProperty("skills")]
-        public Skills Skills { get; set; }
+        public HeroSkills Skills { get; set; }
         [JsonProperty("items")]
         public Dictionary<string, EquippedItemInfo> Items { get; set; }
         [JsonProperty("followers")]
-        public Followers Followers { get; set; }
+        public HeroFollowers Followers { get; set; }
         [JsonProperty("legendaryPowers")]
         public object[] LegendaryPowers { get; set; }
         [JsonProperty("stats")]

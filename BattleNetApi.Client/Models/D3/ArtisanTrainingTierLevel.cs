@@ -20,11 +20,21 @@ using Newtonsoft.Json;
 
 namespace BattleNetApi.Client.Models.D3
 {
-    public class Reagent
+    public class ArtisanTrainingTierLevel
     {
-        [JsonProperty("quantity")]
-        public int Quantity { get; set; }
-        [JsonProperty("item")]
-        public ItemInfoBase Item { get; set; }
+        [JsonProperty("tier")]
+        public int Tier { get; set; }
+        [JsonProperty("tierLevel")]
+        public int TierLevel { get; set; }
+        [JsonProperty("percent")]
+        public int Percent { get; set; }
+        [JsonProperty("trainedRecipes")]
+        public Recipe[] TrainedRecipes { get; set; }
+        [JsonProperty("taughtRecipes")]
+        public Recipe[] TaughtRecipes { get; set; }
+        [JsonProperty("upgradeCost")]
+        public int UpgradeCost { get; set; }
+        [JsonProperty("upgradeItems")]
+        public Reagent[] UpgradeItems { get; set; }
     }
 }

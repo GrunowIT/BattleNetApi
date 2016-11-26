@@ -16,15 +16,23 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
     */
 
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace BattleNetApi.Client.Models.D3
 {
-    public class Reagent
+    [JsonObject(MemberSerialization.OptIn)]
+    public class HeroFollowerInfo
     {
-        [JsonProperty("quantity")]
-        public int Quantity { get; set; }
-        [JsonProperty("item")]
-        public ItemInfoBase Item { get; set; }
+        [JsonProperty("slug")]
+        public string Slug { get; set; }
+        [JsonProperty("level")]
+        public int Level { get; set; }
+        [JsonProperty("items")]
+        public Dictionary<string, EquippedItemInfo> Items { get; set; }
+        [JsonProperty("stats")]
+        public StatsInfo Stats { get; set; }
+        [JsonProperty("skills")]
+        public HeroSkillInfo[] Skills { get; set; }
     }
 }

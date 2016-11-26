@@ -21,15 +21,21 @@ using Newtonsoft.Json;
 namespace BattleNetApi.Client.Models.D3
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class ArtisanInfo
+    public class ArtisanInfo : IApiEndpoint
     {
         [JsonProperty("slug")]
         public string Slug { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
+        [JsonProperty("portrait")]
+        public string Portrait { get; set; }
         [JsonProperty("level")]
         public int Level { get; set; }
         [JsonProperty("stepCurrent")]
         public int StepCurrent { get; set; }
         [JsonProperty("stepMax")]
         public int StepMax { get; set; }
+        [JsonProperty("training")]
+        public ArtisanTraining Training { get; set; }
     }
 }

@@ -24,12 +24,24 @@ namespace BattleNetApi.Client
 {
     public partial class D3ApiClient
     {
+        #region Url definitions
         private static string GetDataBaseUrl = "/d3/data/";
 
         private static string GetDataItemInfoUrl(string itemId)
         {
             return GetDataBaseUrl + $"item/{itemId}";
         }
+
+        private static string GetDataFollowerInfoUrl(string followerId)
+        {
+            return GetDataBaseUrl + $"follower/{followerId}";
+        }
+
+        private static string GetDataArtisanInfoUrl(string artisanId)
+        {
+            return GetDataBaseUrl + $"artisan/{artisanId}";
+        }
+        #endregion
 
         public ItemInfo GetDataItemInfo(string itemId)
         {
@@ -39,6 +51,26 @@ namespace BattleNetApi.Client
         public async Task<ItemInfo> GetDataItemInfoAsync(string itemId)
         {
             return await GetApiResponseAsync(ForgeApiRequest<ItemInfo>(GetDataItemInfoUrl(itemId)));
+        }
+
+        public FollowerInfo GetDataFollowerInfo(string followerId)
+        {
+            return GetApiResponse(ForgeApiRequest<FollowerInfo>(GetDataFollowerInfoUrl(followerId)));
+        }
+
+        public async Task<FollowerInfo> GetDataFollowerInfoAsync(string followerId)
+        {
+            return await GetApiResponseAsync(ForgeApiRequest<FollowerInfo>(GetDataFollowerInfoUrl(followerId)));
+        }
+
+        public ArtisanInfo GetDataArtisanInfo(string artisanId)
+        {
+            return GetApiResponse(ForgeApiRequest<ArtisanInfo>(GetDataArtisanInfoUrl(artisanId)));
+        }
+
+        public async Task<ArtisanInfo> GetDataArtisanInfoAsync(string artisanId)
+        {
+            return await GetApiResponseAsync(ForgeApiRequest<ArtisanInfo>(GetDataArtisanInfoUrl(artisanId)));
         }
     }
 }

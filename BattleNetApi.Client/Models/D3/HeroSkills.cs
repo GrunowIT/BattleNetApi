@@ -1,4 +1,4 @@
-/*
+﻿/*
     BattleNetApi - A .NET battle.net API library.
     Copyright (C) 2016  Sebastian Grunow <sebastian@grunow-it.de>
 
@@ -21,13 +21,11 @@ using Newtonsoft.Json;
 namespace BattleNetApi.Client.Models.D3
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class Followers
+    public class HeroSkills
     {
-        [JsonProperty("templar")]
-        public FollowerInfo Templar { get; set; }
-        [JsonProperty("scoundrel")]
-        public FollowerInfo Scoundrel { get; set; }
-        [JsonProperty("enchantress")]
-        public FollowerInfo Enchantress { get; set; }
+        [JsonProperty("active")]
+        public HeroSkillInfo[] Active { get; set; }
+        [JsonProperty("passive")]
+        public HeroSkillInfo[] Passive { get; set; }
     }
 }

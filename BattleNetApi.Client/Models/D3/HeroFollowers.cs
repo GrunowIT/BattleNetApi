@@ -21,15 +21,13 @@ using Newtonsoft.Json;
 namespace BattleNetApi.Client.Models.D3
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class SkillInfoWrapper
+    public class HeroFollowers
     {
-        [JsonProperty("skill")]
-        public SkillInfo Skill { get; set; }
-
-        /// <summary>
-        /// Seems to be set only for active skills.
-        /// </summary>
-        [JsonProperty("rune")]
-        public Rune Rune { get; set; }
+        [JsonProperty("templar")]
+        public HeroFollowerInfo Templar { get; set; }
+        [JsonProperty("scoundrel")]
+        public HeroFollowerInfo Scoundrel { get; set; }
+        [JsonProperty("enchantress")]
+        public HeroFollowerInfo Enchantress { get; set; }
     }
 }

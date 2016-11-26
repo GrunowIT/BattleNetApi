@@ -50,5 +50,21 @@ namespace BattleNetApi.Client.Tests
             Assert.IsNotNull(data);
             Assert.AreEqual("Unique_Boots_Set_10_x1", data.Id);
         }
+
+        [TestMethod()]
+        public void GetDataFollowerInfoTest()
+        {
+            var data = D3ApiClient.GetDataFollowerInfo("templar");
+            Assert.IsNotNull(data);
+            Assert.AreEqual("templar", data.Slug);
+        }
+
+        [TestMethod()]
+        public void GetDataArtisanInfoTest()
+        {
+            var data = D3ApiClient.GetDataArtisanInfo("blacksmith");
+            Assert.IsNotNull(data);
+            Assert.AreEqual("blacksmith", data.Slug);
+        }
     }
 }
