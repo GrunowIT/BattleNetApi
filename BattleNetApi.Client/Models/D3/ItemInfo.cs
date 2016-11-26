@@ -67,6 +67,10 @@ namespace BattleNetApi.Client.Models.D3
         public RandomAffix[] RandomAffixes { get; set; }
         [JsonProperty("gems")]
         public Gem[] Gems { get; set; }
+
+        /// <summary>
+        /// Data structure yet unknown.
+        /// </summary>
         [JsonProperty("socketEffects")]
         public object[] SocketEffects { get; set; }
         [JsonProperty("recipe")]
